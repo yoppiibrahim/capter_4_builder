@@ -34,7 +34,7 @@ jobs:
       uses: actions/cache@v4
       id: cached-poetry-dependencies
       with:
-        path: .env
+        path: .venv
         key: venv-${{ runner.os}}-${{ hushFiles('**/poetry.lock') }}
 
     - name: Install dependencies with poetry
