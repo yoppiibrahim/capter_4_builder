@@ -38,6 +38,7 @@ jobs:
         key: venv-${{ runner.os}}-${{ hushFiles('**/poetry.lock') }}
 
     - name: Install dependencies with poetry
+      if: steps.cached-poetry-dependencies.output.cache-hit != true
       run: poetry run make install
 
     - name: Lint using flake8
